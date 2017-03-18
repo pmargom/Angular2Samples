@@ -37,9 +37,7 @@ export class TaskListComponent implements OnInit {
     this.startAjaxRequest.emit();
     this.taskListService.addTask$(task).subscribe(
       response => this.loadTasks(),
-      error => {
-        console.log('Error al crear la tarea -> ', task);
-      }
+      error => console.log(error)
     );
   }
     
@@ -47,7 +45,7 @@ export class TaskListComponent implements OnInit {
     this.startAjaxRequest.emit();
     this.taskListService.deleteTask$(task).subscribe(
       response => this.loadTasks(),
-      error => console.log()
+      error => console.log(error)
     );
   }
 
