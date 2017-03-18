@@ -23,6 +23,7 @@ export class TaskListComponent implements OnInit {
   ngOnInit() { this.loadTasks(); }
 
   private loadTasks() {
+    console.log('cargando tareas...');
     this.startAjaxRequest.emit();
     this.taskListService.loadTasks$().subscribe(
       response => this.tasks = response.json(),
@@ -32,10 +33,13 @@ export class TaskListComponent implements OnInit {
   }
     
   taskAddedHandler(task) {
+    console.log('taskAddedHandler -> ', task);
     this.startAjaxRequest.emit();
     this.taskListService.addTask$(task).subscribe(
       response => this.loadTasks(),
-      error => console.log()
+      error => {
+        console.log('Error al crear la tarea -> ', task);
+      }
     );
   }
     

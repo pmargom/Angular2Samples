@@ -1,4 +1,7 @@
 <div class="task-form">
   <!--<md-input [(ngModel)]="task" placeholder="New task"></md-input>-->
+  <md-input-container class="example-full-width">
+    <input mdInput [(ngModel)]="task" placeholder="New task" value="kakakakaka">
+  </md-input-container>
   <button md-button md-raised-button color="primary" (click)="addTask()">Add</button>
 </div>
